@@ -1,0 +1,28 @@
+# Étape 1 : image de base avec .NET SDK pour build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
+WORKDIR /app
+
+# Copier les fichiers du projet
+COPY . .
+
+# Restaurer et compiler
+RUN dotnet restore
+RUN dotnet publish -c Release -o out
+
+# Étape 2 : runtime seulement pour exécuter
+FROM mcr.microsoft.com/dotnet/runtime:8.0
+
+WORKDIR /app
+
+# Création du dossier pour les logs (dans le conteneur)
+RUN mkdir /app/logs
+
+# Copier les fichiers publiés
+COPY --from=build /app/out .
+
+# Ouvrir le port TCP utilisé
+EXPOSE 12345
+
+# Point d'entrée
+ENTRYPOINT ["dotnet", "Server.dll"]

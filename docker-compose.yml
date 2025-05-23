@@ -1,0 +1,9 @@
+services:
+  serveur:
+    build:
+      context: ./Server
+    ports:
+      - "12345:12345"
+    volumes:
+      - ./Server/logs:/app/logs
+

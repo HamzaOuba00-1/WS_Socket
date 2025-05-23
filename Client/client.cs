@@ -27,9 +27,11 @@ namespace Client
                 Socket socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
                 // 2. Définition de l'endpoint du serveur (localhost:12345)
-                IPAddress ipServeur = IPAddress.Parse("127.0.0.1"); // ou IP réelle du serveur
+                IPAddress ipServeur = IPAddress.Parse("127.0.0.1"); // ou "localhost"
                 int port = 12345;
                 IPEndPoint remoteEP = new IPEndPoint(ipServeur, port);
+
+
 
                 // 3. Connexion au serveur
                 socketClient.Connect(remoteEP);

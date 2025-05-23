@@ -92,7 +92,7 @@ namespace Server
 
         private static void log(string message)
         {
-            string cheminFichier = "log.txt";
+            string cheminFichier = Path.Combine(GetLogDirectory(), "log.txt");
             string ligne = $"[{DateTime.Now}] {message}";
 
             try
@@ -103,6 +103,17 @@ namespace Server
             {
                 Console.WriteLine("Erreur lors de l’écriture dans le fichier de log : " + e.Message);
             }
+        }
+
+        private static string GetLogDirectory()
+        {
+            string logDir = "logs";
+
+            // Si répertoire inexistant, le créer
+            if (!Directory.Exists(logDir))
+                Directory.CreateDirectory(logDir);
+
+            return logDir;
         }
 
         private static void Disconnect(Socket socket)
