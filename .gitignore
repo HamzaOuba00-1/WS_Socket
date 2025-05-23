@@ -1,0 +1,57 @@
+## .NET Core / .NET projects
+bin/
+obj/
+out/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Auto-generated files
+*.log
+*.vs/
+*.dbmdl
+*.pdb
+*.cache
+*.mdb
+
+# Build results
+*.exe
+*.dll
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userprefs
+
+# dotCover
+*.dotCover
+
+# Logs
+log.txt
+
+# Optional: ignore test results/output
+TestResults/
+*.coverage
+*.coveragexml
+
+# ASP.NET (if ever used)
+appsettings.*.json
+secrets.json
